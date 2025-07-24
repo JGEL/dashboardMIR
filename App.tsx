@@ -13,7 +13,6 @@ import EvolutionUniversitySelector from './components/EvolutionUniversitySelecto
 import MetricSelector from './components/MetricSelector';
 import EvolutionCharts from './components/EvolutionCharts';
 import EvolutionTable from './components/EvolutionTable';
-import AISummary from './components/AISummary';
 
 
 const App: React.FC = () => {
@@ -98,15 +97,8 @@ const App: React.FC = () => {
                 selectedNames={comparisonSelectedNames}
                 onSelectionChange={handleComparisonSelectionChange}
               />
-               <div className="space-y-6">
-                 <AISummary
-                  data={comparisonFilteredData}
-                  mode="COMPARISON"
-                  year={selectedYear}
-                />
-              </div>
               {comparisonFilteredData.length > 0 ? (
-                <div className="space-y-12">
+                <div className="space-y-12 mt-8">
                   <div>
                     <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><AnalyticsIcon />Visualización Comparativa</h2>
                     <ComparisonCharts data={comparisonFilteredData} />
@@ -117,7 +109,7 @@ const App: React.FC = () => {
                   </div>
                 </div>
               ) : (
-                <div className="text-center py-16 px-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+                <div className="text-center py-16 px-6 bg-white rounded-lg border border-gray-200 shadow-sm mt-8">
                   <h3 className="text-xl font-semibold text-slate-800">Seleccione Universidades para Comparar</h3>
                   <p className="mt-2 text-gray-500">Para comenzar, seleccione hasta 5 universidades de la lista superior.</p>
                 </div>
@@ -134,15 +126,8 @@ const App: React.FC = () => {
                     selectedMetrics={selectedMetrics}
                     onMetricChange={handleMetricChange}
                 />
-                <div className="space-y-6">
-                  <AISummary
-                    data={evolutionFilteredData}
-                    mode="EVOLUTION"
-                    metrics={evolutionSelectedMetrics}
-                  />
-                </div>
                {evolutionFilteredData.length > 0 && selectedMetrics.length > 0 ? (
-                 <div className="space-y-12">
+                 <div className="space-y-12 mt-8">
                    <div>
                       <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><AnalyticsIcon />Gráficos de Evolución</h2>
                       <EvolutionCharts 
@@ -160,7 +145,7 @@ const App: React.FC = () => {
                    </div>
                  </div>
                 ) : (
-                <div className="text-center py-16 px-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+                <div className="text-center py-16 px-6 bg-white rounded-lg border border-gray-200 shadow-sm mt-8">
                   <h3 className="text-xl font-semibold text-slate-800">Visualice la Evolución Anual</h3>
                   <p className="mt-2 text-gray-500">Seleccione al menos una universidad y una métrica para ver su evolución a través de los años.</p>
                 </div>
